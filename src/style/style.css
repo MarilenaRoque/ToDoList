@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0px;
+    margin: 0;
+  }
