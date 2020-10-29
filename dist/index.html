@@ -4,9 +4,22 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap" rel="stylesheet">
     <title>Tasks Awesome</title>
   </head>
   <body id="my-body">
+      <h1> Tasks Awesome </h1>
+      <div class="buttons">
+          <button class="new-btns" id="new-project">Add Project <strong class="plus">+</strong> </button>
+          <button class="new-btns" id="new-todo">Add To Do <strong class="plus">+</strong> </button>
+      </div>
+      <div id="formProject">
+        <form class="add-forms">
+          <label for="title">Title:</label><br>
+          <input type="text" id="title" name="title"><br>
+          <input type="button" id='submit-project' value="Submit">
+        </form>
+      </div>
     <div id="content">
     </div>
     <script src="./main.js"></script>
