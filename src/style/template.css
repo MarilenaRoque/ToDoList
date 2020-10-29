@@ -102,12 +102,16 @@ p {
     margin: 25px auto;
 }
 
-#title {
-  background-color: transparent;
-}
 
 .add-forms {
-    
+    background: whitesmoke;
+    padding: 15px;
+    width: fit-content;
+    margin: 10px auto;
+}
+
+.display-none {
+    display :none;
 }
 
 

@@ -1,5 +1,4 @@
 let myProjects = [];
-
 //Function to get data stored in the Browser
 const pageInit = () => { // eslint-disable-line no-unused-vars
     console.log("hello!")

@@ -1,6 +1,6 @@
 // Factory Function for Project Creation
-const Project = (title, test) => {
-    return { title, test};
+const Project = (title) => {
+    return { title};
 }
 
 // Function to add new Project --Form Submit Listener --
