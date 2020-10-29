@@ -1,0 +1,95 @@
+body {
+    background-color: whitesmoke;
+}
+
+h1 {
+  font-family: "Patrick Hand SC", cursive;
+  font-size: 70px;
+  text-align: center;
+  background-color: #f8e953;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.new-btns {
+  font-family: "Patrick Hand SC", cursive;
+  border-radius: 0px;
+  border: none;
+  padding: 10px;
+  font-size: 25px;
+}
+
+.buttons {
+  width: fit-content;
+  margin: auto;
+}
+
+.content {
+  width: 100%;
+}
+
+h2 {
+  font-family: "Patrick Hand SC", cursive;
+  width: fit-content;
+  background: whitesmoke;
+  padding: 8px;
+  font-size: 30px;
+}
+.pin {
+  margin: 0px 10px;
+}
+
+.board {
+  background-image: url("../images/background.jpg");
+  height: 480px;
+  width: 80%;
+  margin: 45px auto;
+  padding: 10px;
+  border: 15px solid #69542b;
+}
+
+#new-project {
+  background: #ee9193;
+}
+
+#new-todo {
+  background: #82d37a;
+}
+
+.todos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.todo-item {
+  padding: 5px;
+  background: #ee9193;
+  height: 170px;
+  margin: 5px;
+}
+
+h3 {
+    font-family: "Patrick Hand SC", cursive;
+    margin: 0px;
+    background-color: whitesmoke;
+    width: fit-content;
+    padding: 8px;
+    font-size: 20px;
+}
+
+.todo-item button {
+    font-family: "Patrick Hand SC", cursive;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+}
+
+p { 
+    font-family: "Patrick Hand SC", cursive; 
+    font-size: 18px;
+    margin: 8px;
+}
+
+.hover-under:hover {
+    text-decoration: underline;
+}
