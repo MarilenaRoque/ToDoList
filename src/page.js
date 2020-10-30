@@ -7,11 +7,17 @@ const selectTag = document.createElement('select');
 const page = (() => {
     //Hide and Display Project Form
     const displayProjectForm = () => {
+        if (!toDoForm.classList.contains("display-none")) {
+            toDoForm.classList.add("display-none");
+        }
         projectForm.classList.toggle("display-none");
     }
 
     // Hide and Display To Do Form
     const displayToDoForm = (myProjects) => {
+        if (!projectForm.classList.contains("display-none")) {
+            projectForm.classList.add("display-none");
+        }
         setProjectOptions(myProjects);
         toDoForm.classList.toggle("display-none");
     }
