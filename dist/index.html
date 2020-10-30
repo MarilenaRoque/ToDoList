@@ -8,19 +8,58 @@
     <title>Tasks Awesome</title>
   </head>
   <body id="my-body">
+
+      <!-- Title and Buttons -->
       <h1> Tasks Awesome </h1>
       <div class="buttons">
           <button class="new-btns" id="new-project">Add Project <strong class="plus">+</strong> </button>
           <button class="new-btns" id="new-todo">Add To Do <strong class="plus">+</strong> </button>
       </div>
-      <div id="formProject">
+
+      <!-- Project Form -->
+      <div id="formProject" class="addForms display-none">
         <h3><img class="pin" src="../src/images/pin.svg" height="18px">Add Project</h3>
         <form class="add-forms" >
+
           <label for="title">Title:</label><br>
           <input type="text" id="title" name="title"><br>
+
           <input type="button" id='submit-project' value="Submit">
         </form>
       </div>
+
+      <!-- To Do Form -->
+      <div id="formToDo" class="addForms display-none">
+        <h3><img class="pin" src="../src/images/pin.svg" height="18px">Add To Do</h3>
+        <form class="add-forms" >
+
+          <label for="title">Title:</label><br>
+          <input type="text" id="title" name="title"><br>
+
+          <label for="title">Date:</label><br>
+          <input id="date" type="date" name="title"><br>
+
+          <label for="description">Description:</label><br>
+
+          <textarea id="description" name="description" rows="5" cols="20"></textarea><br>
+
+          <label for="priority">Priority Level:</label><br>
+            <select name="priority" id="priority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select><br>
+
+          <label for="project">Project:</label><br>
+          <span id="span-select-project">
+          </span><br>
+
+          <input type="button" id='submit-todo' value="Submit">
+        </form>
+      </div>
+
+
+    <!-- Area to Display Dinamic Content -->
     <div id="content">
     </div>
     <script src="./main.js"></script>

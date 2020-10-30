@@ -18,6 +18,8 @@ document.addEventListener('click', (e) => {
       addProject(myProjects);
     } else if (e.target && e.target.id === 'new-project') {
         page.displayProjectForm();
+    } else if (e.target && e.target.id === "new-todo") {
+        page.displayToDoForm(myProjects);
     }
 });
 

@@ -94,7 +94,11 @@ p {
     text-decoration: underline;
 }
 
-#formProject {
+input, select{
+    margin-bottom: 8px;
+}
+
+.addForms {
     background-image: url("../images/background.jpg");
     width: 30%;
     min-height: 300px;
