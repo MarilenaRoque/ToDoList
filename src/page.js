@@ -30,7 +30,6 @@ function buildOption(project, index) {
     const newOption = document.createElement('option');
     newOption.innerText = project.title;
     newOption.setAttribute("value", project.title);
-    console.log(newOption);
     selectTag.appendChild(newOption);
 }
 

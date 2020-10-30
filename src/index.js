@@ -2,6 +2,7 @@
  import addProject from './project';
  import pageInit from './load';
  import page from './page';
+ import addToDo from './toDo';
 // import Icon from './icon.png';
 console.log("I am working just perfect splendid!")
 
@@ -20,6 +21,8 @@ document.addEventListener('click', (e) => {
         page.displayProjectForm();
     } else if (e.target && e.target.id === "new-todo") {
         page.displayToDoForm(myProjects);
+    }else if (e.target && e.target.id === "submit-todo") {
+        addToDo(myProjects);
     }
 });
 
