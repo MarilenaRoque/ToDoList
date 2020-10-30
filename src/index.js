@@ -10,6 +10,8 @@ console.log("I am working just perfect splendid!")
 let myProjects=[];
 myProjects = pageInit();
 
+page.displayProjectsBoards(myProjects);
+
 
 
 
