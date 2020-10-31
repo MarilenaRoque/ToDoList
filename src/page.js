@@ -52,11 +52,44 @@ function buildOption(project, index) {
 }
 
 // CreateBoard
-function createBoard(project) {
+function createBoard(project, index) {
     const board = document.createElement('div');
     board.setAttribute('class', 'board');
     board.innerHTML = `<h2><img class='pin' src='../src/images/pin.svg' height='35px'>${project.title}</h2>`;
+    const todoArray = project.todos;
+    createGrid(todoArray, board)
+    console.log(index);
     divBoards.appendChild(board);
+}
+
+
+function createGrid(todoArray, board) {
+    const grid = document.createElement('div');
+    grid.setAttribute('class', 'todos-grid');
+    todoArray.forEach(item => createPost(item, grid));
+    board.appendChild(grid);
+}
+
+//Create Post
+const createPost = (item, grid) => {
+    const toDoItem = document.createElement('div');
+    toDoItem.setAttribute('class', 'todo-item');
+    toDoItem.innerHTML = `<h3><img class="pin" src="../src/images/pin.svg" height="18px">${item.title} </h3>`;
+
+
+    // Creating div for date and priority information
+    const divInfo = document.createElement('div');
+    divInfo.innerHTML = `<p> Date:  ${item.date} </p><p> Priority: ${item.priority} </p>`
+    toDoItem.appendChild(divInfo);
+
+     // Creating div for buttons
+     const divButtons = document.createElement('div');
+     divButtons.setAttribute('class', 'todo-buttons');
+     divButtons.innerHTML = `<button id="edit"> <span class="hover-under"> Edit/Details →</span></button>
+     <button id="remove"> <img class="trash" src="../src/images/trash.svg" height="18px"> </button> </p>`
+     toDoItem.appendChild(divButtons);
+
+    grid.appendChild(toDoItem);
 }
 
 export default page;
