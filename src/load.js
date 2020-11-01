@@ -10,4 +10,14 @@ const pageInit = () => { // eslint-disable-line no-unused-vars
     return myProjects;
 }
 
-export default pageInit;
+const reload = () => {
+
+    localStorage.setItem('projects', JSON.stringify(myProjects));
+    document.location.reload();
+
+}
+
+
+
+export { pageInit, reload} ;
+

@@ -52,13 +52,12 @@ function buildOption(project, index) {
 }
 
 // CreateBoard
-function createBoard(project, index) {
+function createBoard(project) {
     const board = document.createElement('div');
     board.setAttribute('class', 'board');
     board.innerHTML = `<h2><img class='pin' src='../src/images/pin.svg' height='35px'>${project.title}</h2>`;
     const todoArray = project.todos;
     createGrid(todoArray, board)
-    console.log(index);
     divBoards.appendChild(board);
 }
 
