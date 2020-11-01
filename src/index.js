@@ -30,5 +30,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
+export default myProjects;
+
 
 

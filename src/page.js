@@ -44,7 +44,7 @@ const setProjectOptions = (myProjects) => {
 }
 
 //Create the Options tag
-function buildOption(project, index) {
+function buildOption(project) {
     const newOption = document.createElement('option');
     newOption.innerText = project.title;
     newOption.setAttribute("value", project.title);
@@ -52,29 +52,29 @@ function buildOption(project, index) {
 }
 
 // CreateBoard
-function createBoard(project) {
+function createBoard(project, idxProject) {
     const board = document.createElement('div');
     board.setAttribute('class', 'board');
     board.innerHTML = `<h2><img class='pin' src='../src/images/pin.svg' height='35px'>${project.title}</h2>`;
     const todoArray = project.todos;
-    createGrid(todoArray, board)
+    createGrid(todoArray, board, idxProject)
     divBoards.appendChild(board);
 }
 
 
-function createGrid(todoArray, board) {
+function createGrid(todoArray, board, idxProject) {
     const grid = document.createElement('div');
     grid.setAttribute('class', 'todos-grid');
-    todoArray.forEach(item => createPost(item, grid));
+    todoArray.forEach((item, idxToDo) => createPost(item, idxToDo, grid, idxProject));
     board.appendChild(grid);
 }
 
 //Create Post
-const createPost = (item, grid) => {
+const createPost = (item, idxToDo, grid, idxProject) => {
     const toDoItem = document.createElement('div');
     toDoItem.setAttribute('class', 'todo-item');
     toDoItem.innerHTML = `<h3><img class="pin" src="../src/images/pin.svg" height="18px">${item.title} </h3>`;
-
+    console.log(idxProject, idxToDo);
 
     // Creating div for date and priority information
     const divInfo = document.createElement('div');
@@ -84,10 +84,9 @@ const createPost = (item, grid) => {
      // Creating div for buttons
      const divButtons = document.createElement('div');
      divButtons.setAttribute('class', 'todo-buttons');
-     divButtons.innerHTML = `<button id="edit"> <span class="hover-under"> Edit/Details →</span></button>
-     <button id="remove"> <img class="trash" src="../src/images/trash.svg" height="18px"> </button> </p>`
+     divButtons.innerHTML = `<button id="edit-${idxProject}-${idxToDo}"> <span class="hover-under"> Edit/Details →</span></button>
+     <button id="remove-${idxProject}-${idxToDo}"> <img class="trash" src="../src/images/trash.svg" height="18px"> </button> </p>`
      toDoItem.appendChild(divButtons);
-
     grid.appendChild(toDoItem);
 }
 
