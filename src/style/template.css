@@ -100,6 +100,7 @@ input, select{
 
 .addForms {
     background-image: url("../images/background.jpg");
+    border: 15px solid #69542b;
     width: 30%;
     min-height: 300px;
     padding: 10px;
