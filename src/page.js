@@ -85,7 +85,7 @@ const createPost = (item, idxToDo, grid, idxProject) => {
      const divButtons = document.createElement('div');
      divButtons.setAttribute('class', 'todo-buttons');
      divButtons.innerHTML = `<button id="edit-${idxProject}-${idxToDo}"> <span class="hover-under"> Edit/Details →</span></button>
-     <button id="remove-${idxProject}-${idxToDo}"> <img class="trash" src="../src/images/trash.svg" height="18px"> </button> </p>`
+     <button> <img class="trash"  id="remove-${idxProject}-${idxToDo}" src="../src/images/trash.svg" height="18px"> </button> </p>`
      toDoItem.appendChild(divButtons);
     grid.appendChild(toDoItem);
 }

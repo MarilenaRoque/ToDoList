@@ -10,8 +10,17 @@ const addProject = (myProjects) => {
     myProjects.push(newProject);
     localStorage.setItem('projects', JSON.stringify(myProjects));
     document.getElementById("formTagProject").reset();
+    removeToDo(myProjects, 0, 0);
+}
+
+const removeToDo = (myProjects, idxProject, idxToDo) => {
+    const newMyProjects = [...myProjects]
+    newMyProjects[idxProject].todos.splice(idxToDo, 1);
+   localStorage.setItem('projects', JSON.stringify(newMyProjects));
+    return newMyProjects;
+    
 }
 
 
-export default addProject;
+export {addProject, removeToDo};
 

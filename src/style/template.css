@@ -2,6 +2,14 @@ body {
     background-color: whitesmoke;
 }
 
+input:focus, textarea:focus, select:focus, button:focus{
+  outline: none;
+  cursor: pointer;
+}
+button:hover {
+  cursor: pointer;
+}
+
 h1 {
   font-family: "Patrick Hand SC", cursive;
   font-size: 70px;
