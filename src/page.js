@@ -32,7 +32,24 @@ const page = (() => {
         contentArea.appendChild(divBoards);
     }
 
-    return {displayProjectForm, displayToDoForm, displayProjectsBoards};
+    // Hide Edit Form
+    const hideEditForm = () => {
+        const editFormBox = document.getElementById("edit-form");
+        editFormBox.classList.toggle("display-none");
+    }
+
+    // Edit ToDo Form
+    const displayEditForm  = (myProjects, idxProject, idxToDo) => {
+        const todo = myProjects[idxProject].todos[idxToDo];
+        const editForm = document.getElementById("formToDoEdit");
+        document.getElementById("title-edit").setAttribute('value', todo.title);
+        document.getElementById("current-date").innerText = `${todo.date}`;
+        document.getElementById("current-priority").innerText = `${todo.priority}`;
+        const editFormBox = document.getElementById("edit-form");
+        editFormBox.classList.toggle("display-none");
+    }
+
+    return {displayProjectForm, displayToDoForm, displayProjectsBoards, displayEditForm, hideEditForm};
 })();
 
 // Create the select tag on the DOM
@@ -61,7 +78,7 @@ function createBoard(project, idxProject) {
     divBoards.appendChild(board);
 }
 
-
+// Create the grid to display ToDos
 function createGrid(todoArray, board, idxProject) {
     const grid = document.createElement('div');
     grid.setAttribute('class', 'todos-grid');
@@ -84,10 +101,13 @@ const createPost = (item, idxToDo, grid, idxProject) => {
      // Creating div for buttons
      const divButtons = document.createElement('div');
      divButtons.setAttribute('class', 'todo-buttons');
-     divButtons.innerHTML = `<button id="edit-${idxProject}-${idxToDo}"> <span class="hover-under"> Edit/Details →</span></button>
+     divButtons.innerHTML = `<button> <span class="hover-under" id="edit-${idxProject}-${idxToDo}"> Edit/Details →</span></button>
      <button> <img class="trash"  id="remove-${idxProject}-${idxToDo}" src="../src/images/trash.svg" height="18px"> </button> </p>`
      toDoItem.appendChild(divButtons);
     grid.appendChild(toDoItem);
 }
+
+
+
 
 export default page;

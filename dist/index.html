@@ -63,6 +63,37 @@
     <!-- Area to Display Dinamic Content -->
     <div id="content">
     </div>
+    <div id="edit-form" class="display-none">
+      <div id="formToDoEdit" class="addForms">
+          <h1 id="close">X</h1>
+          <h3><img class="pin" src="../src/images/pin.svg" height="18px">Add To Do</h3>
+          <form class="add-forms" id="formTagToDo">
+  
+            <label for="title-todo">Title:</label><br>
+            <input type="text" id="title-edit" name="title-todo"><br>
+            
+            <p>Date: <span id='current-date'></span></p>
+            <input id="edit-date" type="date" name="date"><br>
+            
+  
+            <label for="description">Description:</label><br>
+  
+            <textarea id="edit-description" name="description" rows="5" cols="20"></textarea><br>
+            
+            <p>Priority: <span id='current-priority'></span></p>
+              <select name="priority" id="priority">
+              <option selected="selected" value="nil">Choose new Priority</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select><br>
+            
+  
+  
+            <input type="button" value="Submit">
+          </form>
+        </div>
+  </div>
     <script src="./main.js"></script>
   </body>
 </html>

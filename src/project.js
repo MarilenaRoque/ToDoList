@@ -13,13 +13,14 @@ const addProject = (myProjects) => {
     removeToDo(myProjects, 0, 0);
 }
 
+// Remove ToDo
 const removeToDo = (myProjects, idxProject, idxToDo) => {
     const newMyProjects = [...myProjects]
     newMyProjects[idxProject].todos.splice(idxToDo, 1);
    localStorage.setItem('projects', JSON.stringify(newMyProjects));
-    return newMyProjects;
-    
+    return newMyProjects;    
 }
+
 
 
 export {addProject, removeToDo};

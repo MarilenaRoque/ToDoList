@@ -25,11 +25,16 @@ document.addEventListener('click', (e) => {
     } else if (e.target && e.target.id === "submit-todo") {
         addToDo(myProjects);
         load.reload();
-    } else if (e.target && (e.target.id).includes('remove')){
+    } else if (e.target && (e.target.id).includes('remove-')){
         const buttonIndex = e.target.id.split("-");
         myProjects = project.removeToDo(myProjects, buttonIndex[1], buttonIndex[2])
         load.reload();
-    }
+    } else if((e.target && e.target.id === "close") || (e.target && e.target.id === "edit-form")){
+        page.hideEditForm();
+    }else if (e.target && (e.target.id).includes('edit')){
+        const buttonIndex = e.target.id.split("-");
+        page.displayEditForm(myProjects, buttonIndex[1], buttonIndex[2]);
+    } 
 });
 
 export default myProjects;
