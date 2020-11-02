@@ -31,7 +31,7 @@ document.addEventListener('click', (e) => {
         load.reload();
     } else if((e.target && e.target.id === "close") || (e.target && e.target.id === "edit-form")){
         page.hideEditForm();
-    }else if (e.target && (e.target.id).includes('edit')){
+    } else if (e.target && (e.target.id).includes('edit')){
         const buttonIndex = e.target.id.split("-");
         page.displayEditForm(myProjects, buttonIndex[1], buttonIndex[2]);
     } 

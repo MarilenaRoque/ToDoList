@@ -38,13 +38,24 @@ const page = (() => {
         editFormBox.classList.toggle("display-none");
     }
 
-    // Edit ToDo Form
+    // Display ToDo Form
     const displayEditForm  = (myProjects, idxProject, idxToDo) => {
         const todo = myProjects[idxProject].todos[idxToDo];
+
+        //Getting and displaying To Do detail
         const editForm = document.getElementById("formToDoEdit");
         document.getElementById("title-edit").setAttribute('value', todo.title);
         document.getElementById("current-date").innerText = `${todo.date}`;
         document.getElementById("current-priority").innerText = `${todo.priority}`;
+
+        //Creating Submit Button
+        const buttonSubmit = document.createElement('button');
+        buttonSubmit.setAttribute("value", "submit")
+        buttonSubmit.innerText = "Save Changes";
+        buttonSubmit.setAttribute("id", `change-${idxProject}-${idxToDo}`)
+        editForm.appendChild(buttonSubmit);
+
+
         const editFormBox = document.getElementById("edit-form");
         editFormBox.classList.toggle("display-none");
     }
