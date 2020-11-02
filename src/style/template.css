@@ -41,7 +41,7 @@ h2 {
 
 .board {
   background-image: url("../images/background.jpg");
-  height: 480px;
+  min-height: 480px;
   width: 80%;
   margin: 45px auto;
   padding: 10px;
@@ -64,7 +64,7 @@ h2 {
 .todo-item {
   padding: 5px;
   background: #ee9193;
-  height: 170px;
+  min-height: 170px;
   margin: 5px;
 }
 
