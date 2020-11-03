@@ -7,10 +7,10 @@ const Project = (title, todos=[]) => {
 const addProject = (myProjects) => {
     const title = document.getElementById('title').value;
     const newProject = Project(title);
+    console.log(newProject);
     myProjects.push(newProject);
     localStorage.setItem('projects', JSON.stringify(myProjects));
     document.getElementById("formTagProject").reset();
-    removeToDo(myProjects, 0, 0);
 }
 
 // Remove ToDo

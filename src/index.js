@@ -3,8 +3,7 @@
  import * as toDo from './toDo';
  import * as load from './load';
  import * as project from './project';
-// import Icon from './icon.png';
-console.log("I am working just perfect splendid!")
+
 
 //Initializing my Projects
 let myProjects=[];

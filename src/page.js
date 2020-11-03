@@ -100,7 +100,6 @@ const createPost = (item, idxToDo, grid, idxProject) => {
     const toDoItem = document.createElement('div');
     toDoItem.setAttribute('class', 'todo-item');
     toDoItem.innerHTML = `<h3><img class="pin" src="../src/images/pin.svg" height="18px">${item.title} </h3>`;
-    console.log(idxProject, idxToDo);
 
     // Creating div for date and priority information
     const divInfo = document.createElement('div');
