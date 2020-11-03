@@ -1,4 +1,5 @@
-import myProjects from ".";
+import * as load from './load';
+import page from './page';
 
 // Factory Function for ToDo creation
 const toDo = (title, date, description, priority, project) => {
@@ -13,10 +14,13 @@ const addToDo = (myProjects) => {
     const description = document.getElementById('description').value;
     const priority = document.getElementById('priority').value;
     const project = document.getElementById('project').value;
-    const newToDo = toDo(title, date, description, priority, project);
-    console.log(newToDo);
-    document.getElementById("formTagToDo").reset();
-    setProjectStorage(myProjects, newToDo)
+    if (title && date && description && priority) {
+        const newToDo = toDo(title, date, description, priority, project);
+        setProjectStorage(myProjects, newToDo)
+        load.reload();
+    } else {
+        page.displayWarning("todo-warning");
+    }
 }
 
 

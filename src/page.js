@@ -58,7 +58,11 @@ const page = (() => {
         editFormBox.classList.toggle("display-none");
     }
 
-    return {displayProjectForm, displayToDoForm, displayProjectsBoards, displayEditForm, hideEditForm};
+    const displayWarning = (id) => {
+        document.getElementById(id).classList.remove('display-none');
+    }
+
+    return {displayProjectForm, displayToDoForm, displayProjectsBoards, displayEditForm, hideEditForm, displayWarning};
 })();
 
 // Create the select tag on the DOM

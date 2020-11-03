@@ -1,3 +1,6 @@
+import * as load from './load';
+import page from './page';
+
 // Factory Function for Project Creation
 const Project = (title, todos=[]) => {
     return {title, todos};
@@ -6,11 +9,14 @@ const Project = (title, todos=[]) => {
 // Function to add new Project --Form Submit Listener --
 const addProject = (myProjects) => {
     const title = document.getElementById('title').value;
-    const newProject = Project(title);
-    console.log(newProject);
-    myProjects.push(newProject);
-    localStorage.setItem('projects', JSON.stringify(myProjects));
-    document.getElementById("formTagProject").reset();
+    if (title) {
+        const newProject = Project(title);
+        myProjects.push(newProject);
+        localStorage.setItem('projects', JSON.stringify(myProjects));
+        load.reload();
+    } else {
+        page.displayWarning("project-warning");
+    }
 }
 
 // Remove ToDo
