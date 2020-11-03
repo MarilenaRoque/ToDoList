@@ -37,7 +37,7 @@ h1 {
 }
 
 .buttons {
-  width: fit-content;
+  width: auto;
   margin: auto;
 }
 
@@ -47,7 +47,7 @@ h1 {
 
 h2 {
   font-family: "Patrick Hand SC", cursive;
-  width: fit-content;
+  width: auto;
   background: whitesmoke;
   padding: 8px;
   font-size: 30px;
@@ -90,7 +90,7 @@ h3 {
   font-family: "Patrick Hand SC", cursive;
   margin: 0;
   background-color: whitesmoke;
-  width: fit-content;
+  width: auto;
   padding: 8px;
   font-size: 20px;
 }
@@ -124,7 +124,7 @@ p {
 .add-forms {
   background: whitesmoke;
   padding: 15px;
-  width: fit-content;
+  width: auto;
   margin: 10px auto;
 }
 
