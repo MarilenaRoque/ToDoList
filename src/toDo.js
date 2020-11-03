@@ -3,7 +3,15 @@ import page from './page';
 
 // Factory Function for ToDo creation
 const toDo = (title, date, description, priority, project) => {
-    return {title, date, description, priority, project};
+    let color = '';
+    if (priority === 'Low') {
+        color = '#82d37a';
+    } else if (priority === 'Medium') {
+        color = '#f8e953';
+    } if (priority === 'High') {
+        color = '#ee9193';
+    }
+    return {title, date, description, priority, project, color};
 }
 
 
