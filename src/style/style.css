@@ -1,16 +1,22 @@
-* {
-  box-sizing: border-box;
+body {
+  background-color: whitesmoke;
 }
 
-body {
-    background-image: url("../images/background.jpg");
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    padding: 0px;
-    margin: 0;
-    background-color: whitesmoke;
+input,
+select {
+  margin-bottom: 8px;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 h1 {
@@ -24,7 +30,7 @@ h1 {
 
 .new-btns {
   font-family: "Patrick Hand SC", cursive;
-  border-radius: 0px;
+  border-radius: 0;
   border: none;
   padding: 10px;
   font-size: 25px;
@@ -46,13 +52,14 @@ h2 {
   padding: 8px;
   font-size: 30px;
 }
+
 .pin {
-  margin: 0px 10px;
+  margin: 0 10px;
 }
 
 .board {
   background-image: url("../images/background.jpg");
-  height: 480px;
+  min-height: 480px;
   width: 80%;
   margin: 45px auto;
   padding: 10px;
@@ -75,37 +82,75 @@ h2 {
 .todo-item {
   padding: 5px;
   background: #ee9193;
-  height: 170px;
+  min-height: 170px;
   margin: 5px;
 }
 
 h3 {
-    font-family: "Patrick Hand SC", cursive;
-    margin: 0px;
-    background-color: whitesmoke;
-    width: fit-content;
-    padding: 8px;
-    font-size: 20px;
+  font-family: "Patrick Hand SC", cursive;
+  margin: 0;
+  background-color: whitesmoke;
+  width: fit-content;
+  padding: 8px;
+  font-size: 20px;
 }
 
 .todo-item button {
-    font-family: "Patrick Hand SC", cursive;
-    background: transparent;
-    border: none;
-    font-size: 20px;
+  font-family: "Patrick Hand SC", cursive;
+  background: transparent;
+  border: none;
+  font-size: 20px;
 }
 
-p { 
-    font-family: "Patrick Hand SC", cursive; 
-    font-size: 18px;
-    margin: 8px;
+p {
+  font-family: "Patrick Hand SC", cursive;
+  font-size: 18px;
+  margin: 8px;
 }
 
 .hover-under:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-#formProject {
-  width: 20%;
-  margin: auto;
+.addForms {
+  background-image: url("../images/background.jpg");
+  border: 15px solid #69542b;
+  width: 30%;
+  min-height: 300px;
+  padding: 10px;
+  margin: 25px auto;
+}
+
+.add-forms {
+  background: whitesmoke;
+  padding: 15px;
+  width: fit-content;
+  margin: 10px auto;
+}
+
+.display-none {
+  display: none !important;
+}
+
+#edit-form {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  background-color: rgba(24, 23, 23, 0.836);
+}
+
+#close {
+  text-align: right;
+  background-color: transparent;
+  margin: 0;
+  font-size: 45px;
+  color: red;
+}
+
+#close:hover {
+  cursor: pointer;
 }

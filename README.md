@@ -1,7 +1,9 @@
 <h1 align="center">To-do List</h1>
 
+⚠️ I am allowed by Microverse to make this Project Solo ⚠️
 
-> A Javascript Web Application to manage your list of tasks. Applying concepts about OOP and Functional Programming.
+
+> A Javascript Web Application to manage your list of tasks. Applying concepts about OOP, ES6 resources and Functional Programming.
 
 
 ### You can access a Live Demo [HERE]()
