@@ -6,11 +6,18 @@
 > A Javascript Web Application to manage your list of tasks. Applying concepts about OOP, ES6 resources and Functional Programming.
 
 
+
 ### You can access a Live Demo [HERE](https://raw.githack.com/MarilenaRoque/ToDoList/feature/app/dist/index.html)
 
 ![Screenshot](./src/images/screenshot.png)
 
+## Features
 
+- User can create Projects (A Default Project is automatically created)
+- User can create a 'To Do' and choose what Project it should belong to
+- The main page display all the Projects separated and its 'To Do's
+- User can expand a 'To Do' to view its details or edit it
+- The background color of the post-it is set according to the 'To Do' priority
 
 ## Built With
 
