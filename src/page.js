@@ -46,14 +46,12 @@ const page = (() => {
         const editForm = document.getElementById("formToDoEdit");
         document.getElementById("title-edit").setAttribute('value', todo.title);
         document.getElementById("current-date").innerText = `${todo.date}`;
+        document.getElementById('edit-description').value = todo.description;
         document.getElementById("current-priority").innerText = `${todo.priority}`;
 
         //Creating Submit Button
-        const buttonSubmit = document.createElement('button');
-        buttonSubmit.setAttribute("value", "submit")
-        buttonSubmit.innerText = "Save Changes";
+        const buttonSubmit = document.getElementById("submit-edit")
         buttonSubmit.setAttribute("id", `change-${idxProject}-${idxToDo}`)
-        editForm.appendChild(buttonSubmit);
 
 
         const editFormBox = document.getElementById("edit-form");
@@ -112,7 +110,7 @@ const createPost = (item, idxToDo, grid, idxProject) => {
      // Creating div for buttons
      const divButtons = document.createElement('div');
      divButtons.setAttribute('class', 'todo-buttons');
-     divButtons.innerHTML = `<button> <span class="hover-under" id="edit-${idxProject}-${idxToDo}"> Edit/Details →</span></button>
+     divButtons.innerHTML = `<button> <span class="hover-under" id="btnedit-${idxProject}-${idxToDo}"> Edit/Details →</span></button>
      <button> <img class="trash"  id="remove-${idxProject}-${idxToDo}" src="../src/images/trash.svg" height="18px"> </button> </p>`
      toDoItem.appendChild(divButtons);
     grid.appendChild(toDoItem);

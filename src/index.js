@@ -1,6 +1,6 @@
  import './style/template.css';
  import page from './page';
- import addToDo from './toDo';
+ import * as toDo from './toDo';
  import * as load from './load';
  import * as project from './project';
 // import Icon from './icon.png';
@@ -23,7 +23,7 @@ document.addEventListener('click', (e) => {
     } else if (e.target && e.target.id === "new-todo") {
         page.displayToDoForm(myProjects);
     } else if (e.target && e.target.id === "submit-todo") {
-        addToDo(myProjects);
+        toDo.addToDo(myProjects);
         load.reload();
     } else if (e.target && (e.target.id).includes('remove-')){
         const buttonIndex = e.target.id.split("-");
@@ -31,10 +31,14 @@ document.addEventListener('click', (e) => {
         load.reload();
     } else if((e.target && e.target.id === "close") || (e.target && e.target.id === "edit-form")){
         page.hideEditForm();
-    } else if (e.target && (e.target.id).includes('edit')){
+    } else if (e.target && (e.target.id).includes('btnedit')){
         const buttonIndex = e.target.id.split("-");
         page.displayEditForm(myProjects, buttonIndex[1], buttonIndex[2]);
-    } 
+    } else if (e.target && (e.target.id).includes('change')){
+        const buttonIndex = e.target.id.split("-");
+        myProjects = toDo.submitToDo(myProjects, buttonIndex[1], buttonIndex[2]);
+        load.reload();
+    }
 });
 
 export default myProjects;

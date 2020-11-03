@@ -1,3 +1,5 @@
+import myProjects from ".";
+
 // Factory Function for ToDo creation
 const toDo = (title, date, description, priority, project) => {
     return {title, date, description, priority, project};
@@ -28,4 +30,28 @@ const setProjectStorage = (myProjects, newToDo) => {
     localStorage.setItem('projects', JSON.stringify(myProjects));
 }
 
-export default addToDo;
+const submitToDo = (myProjects, idxProject, idxToDo) => {
+    const newMyProjects = [...myProjects]
+    const todo = newMyProjects[idxProject].todos[idxToDo]
+
+    //getting forms values
+    const title = document.getElementById('title-edit').value;
+    const date = document.getElementById('edit-date').value;
+    const description = document.getElementById('edit-description').value;
+    const priority = document.getElementById('edit-priority').value;
+    console.log(title, date, description, priority);
+    newMyProjects[idxProject].todos[idxToDo] = editToDo(todo, title, date, description, priority);
+    localStorage.setItem('projects', JSON.stringify(newMyProjects));
+    return newMyProjects;
+}
+
+const editToDo = (todo, title, date, description, priority) => {
+    const editedToDo = todo;
+    if (title) { editedToDo.title = title; }
+    if (date) { editedToDo.date= date; }
+    editedToDo.description= description; 
+    if (priority !== 'nil') { editedToDo.priority= priority; }
+    return editedToDo;
+}
+
+export {addToDo, submitToDo};
