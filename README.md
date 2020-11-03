@@ -6,7 +6,7 @@
 > A Javascript Web Application to manage your list of tasks. Applying concepts about OOP, ES6 resources and Functional Programming.
 
 
-### You can access a Live Demo [HERE]()
+### You can access a Live Demo [HERE](https://raw.githack.com/MarilenaRoque/ToDoList/feature/app/dist/index.html)
 
 ![Screenshot](./src/images/screenshot.png)
 
