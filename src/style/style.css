@@ -34,11 +34,12 @@ h1 {
   border: none;
   padding: 10px;
   font-size: 25px;
+  margin: 5px;
 }
 
 .buttons {
-  width: auto;
-  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .content {
