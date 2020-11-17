@@ -52,7 +52,31 @@ describe('AddToDo function', () => {
         expect(result).toHaveProperty('project');
     });
 
-    // Check if the color is set correctly
+    // Check if the color were set correctly
+
+    it('Color is set correctly for low priority', () => {
+        let result = toDo.addToDo(testMyProjects, testToDoInfo);
+        expect(result.color).toBe('#82d37a');
+    });
+
+    it('Color is set differently if priority change', () => {
+        testToDoInfo.priority = 'Medium';
+        let result = toDo.addToDo(testMyProjects, testToDoInfo);
+        expect(result.color).not.toBe('#82d37a');
+    });
+
+    it('Color is set correctly for Medium priority', () => {
+        testToDoInfo.priority = 'Medium';
+        let result = toDo.addToDo(testMyProjects, testToDoInfo);
+        expect(result.color).toBe('#f8e953');
+    });
+
+    it('Color is set correctly for High priority', () => {
+        testToDoInfo.priority = 'High';
+        let result = toDo.addToDo(testMyProjects, testToDoInfo);
+        expect(result.color).toBe('#ee9193');
+    });
+
 
 
 });
