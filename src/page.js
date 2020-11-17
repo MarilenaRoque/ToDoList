@@ -79,13 +79,13 @@ const page = (() => {
     const priority = document.getElementById('priority').value;
     const project = document.getElementById('project').value;
     return {
-      'title': title,
-      'date': date,
-      'description': description,
-      'priority' : priority,
-      'project': project,
-    }
-  }
+      title,
+      date,
+      description,
+      priority,
+      project,
+    };
+  };
 
   // Hide and Display To Do Form
   const displayToDoForm = (myProjects) => {

@@ -34,7 +34,11 @@ const setProjectStorage = (myProjects, newToDo) => {
 const addToDo = (myProjects, toDoInfo) => {
   let status = '';
   if (toDoInfo.title && toDoInfo.date && toDoInfo.description && toDoInfo.priority) {
-    const newToDo = toDo(toDoInfo.title, toDoInfo.date, toDoInfo.description, toDoInfo.priority, toDoInfo.project);
+    const newToDo = toDo(toDoInfo.title,
+      toDoInfo.date,
+      toDoInfo.description,
+      toDoInfo.priority,
+      toDoInfo.project);
     setProjectStorage(myProjects, newToDo);
     load.reload();
     status = newToDo;

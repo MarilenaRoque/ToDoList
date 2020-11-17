@@ -7,6 +7,7 @@ import * as project from './project';
 // Initializing my Projects
 let myProjects = [];
 myProjects = load.pageInit();
+console.log(myProjects);
 page.displayProjectsBoards(myProjects);
 
 // Event Listeners
