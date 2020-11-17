@@ -72,6 +72,21 @@ const page = (() => {
   // get Title for project submission
   const getTitle = () => document.getElementById('title').value;
 
+  const getToDoInfo = () => {
+    const title = document.getElementById('title-todo').value;
+    const date = document.getElementById('date').value;
+    const description = document.getElementById('description').value;
+    const priority = document.getElementById('priority').value;
+    const project = document.getElementById('project').value;
+    return {
+      'title': title,
+      'date': date,
+      'description': description,
+      'priority' : priority,
+      'project': project,
+    }
+  }
+
   // Hide and Display To Do Form
   const displayToDoForm = (myProjects) => {
     if (!projectForm.classList.contains('display-none')) {
@@ -124,6 +139,7 @@ const page = (() => {
     hideEditForm,
     displayWarning,
     getTitle,
+    getToDoInfo,
   };
 })();
 

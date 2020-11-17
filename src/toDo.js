@@ -31,15 +31,10 @@ const setProjectStorage = (myProjects, newToDo) => {
 };
 
 // Create a new Todo -- triggered by submit to do button
-const addToDo = (myProjects) => {
-  const title = document.getElementById('title-todo').value;
-  const date = document.getElementById('date').value;
-  const description = document.getElementById('description').value;
-  const priority = document.getElementById('priority').value;
-  const project = document.getElementById('project').value;
+const addToDo = (myProjects, toDoInfo) => {
   let status = '';
-  if (title && date && description && priority) {
-    const newToDo = toDo(title, date, description, priority, project);
+  if (toDoInfo.title && toDoInfo.date && toDoInfo.description && toDoInfo.priority) {
+    const newToDo = toDo(toDoInfo.title, toDoInfo.date, toDoInfo.description, toDoInfo.priority, toDoInfo.project);
     setProjectStorage(myProjects, newToDo);
     load.reload();
     status = newToDo;

@@ -19,7 +19,8 @@ document.addEventListener('click', (e) => {
   } else if (e.target && e.target.id === 'new-todo') {
     page.displayToDoForm(myProjects);
   } else if (e.target && e.target.id === 'submit-todo') {
-    toDo.addToDo(myProjects);
+    const info = page.getToDoInfo();
+    toDo.addToDo(myProjects, info);
   } else if (e.target && (e.target.id).includes('remove-')) {
     const buttonIndex = e.target.id.split('-');
     myProjects = project.removeToDo(myProjects, buttonIndex[1], buttonIndex[2]);

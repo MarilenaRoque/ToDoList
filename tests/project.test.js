@@ -10,7 +10,7 @@ describe('AddProject function', () => {
   it('Add Project Succed with a valid title', () => {
     expect(project.addProject([], 'New Test')).toStrictEqual({
       title: 'New Test', todos: [],
-    });
+    })
   });
 
   it('Return an Object with title attribute correctly set', () => {
