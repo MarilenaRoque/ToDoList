@@ -9,7 +9,7 @@ const Project = (title, todos = []) => ({ title, todos });
 
 // Function to add new Project --Form Submit Listener --
 const addProject = (myProjects, title) => {
-  const result = '';
+  let result = '';
   if (title) {
     const newProject = Project(title);
     myProjects.push(newProject);
