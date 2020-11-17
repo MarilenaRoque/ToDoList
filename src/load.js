@@ -1,4 +1,4 @@
-import setLocalStorage from './storage'
+import setLocalStorage from './storage';
 
 let myProjects = [];
 // Function to get data stored in the Browser
@@ -15,6 +15,5 @@ const reload = () => {
   setLocalStorage(myProjects);
   document.location.reload();
 };
-
 
 export { pageInit, reload };

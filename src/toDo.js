@@ -1,6 +1,6 @@
 import * as load from './load';
 import page from './page';
-import setLocalStorage from './storage'
+import setLocalStorage from './storage';
 
 const setColor = (priority) => {
   let color = '';
@@ -30,7 +30,6 @@ const setProjectStorage = (myProjects, newToDo) => {
   setLocalStorage(myProjects);
 };
 
-
 // Create a new Todo -- triggered by submit to do button
 const addToDo = (myProjects) => {
   const title = document.getElementById('title-todo').value;
@@ -46,11 +45,10 @@ const addToDo = (myProjects) => {
     status = newToDo;
   } else {
     page.displayWarning('todo-warning');
-    status = 'Fail'
+    status = 'Fail';
   }
-  return status
+  return status;
 };
-
 
 const editToDo = (todo, title, date, description, priority) => {
   const editedToDo = todo;
@@ -78,6 +76,5 @@ const submitToDo = (myProjects, idxProject, idxToDo) => {
   setLocalStorage(newMyProjects);
   return newMyProjects;
 };
-
 
 export { addToDo, submitToDo };

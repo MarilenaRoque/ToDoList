@@ -42,7 +42,6 @@ const createPost = (item, idxToDo, grid, idxProject) => {
   grid.appendChild(toDoItem);
 };
 
-
 // Create the grid to display ToDos
 function createGrid(todoArray, board, idxProject) {
   const grid = document.createElement('div');
@@ -50,7 +49,6 @@ function createGrid(todoArray, board, idxProject) {
   todoArray.forEach((item, idxToDo) => createPost(item, idxToDo, grid, idxProject));
   board.appendChild(grid);
 }
-
 
 // CreateBoard
 function createBoard(project, idxProject) {
@@ -62,7 +60,6 @@ function createBoard(project, idxProject) {
   divBoards.appendChild(board);
 }
 
-
 const page = (() => {
   // Hide and Display Project Form
   const displayProjectForm = () => {
@@ -72,10 +69,8 @@ const page = (() => {
     projectForm.classList.toggle('display-none');
   };
 
-   //get Title for project submission
-  const getTitle= () => {
-    return document.getElementById('title').value;
-  }
+  // get Title for project submission
+  const getTitle = () => document.getElementById('title').value;
 
   // Hide and Display To Do Form
   const displayToDoForm = (myProjects) => {
@@ -113,7 +108,6 @@ const page = (() => {
     const pButtonSubmit = document.getElementById('btnEdit');
     pButtonSubmit.innerHTML = `<p id=change-${idxProject}-${idxToDo}>Save Changes</p>`;
 
-
     const editFormBox = document.getElementById('edit-form');
     editFormBox.classList.toggle('display-none');
   };
@@ -129,9 +123,8 @@ const page = (() => {
     displayEditForm,
     hideEditForm,
     displayWarning,
-    getTitle
+    getTitle,
   };
 })();
-
 
 export default page;

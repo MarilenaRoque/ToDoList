@@ -4,13 +4,10 @@ import * as toDo from './toDo';
 import * as load from './load';
 import * as project from './project';
 
-
 // Initializing my Projects
 let myProjects = [];
 myProjects = load.pageInit();
-console.log(myProjects);
 page.displayProjectsBoards(myProjects);
-
 
 // Event Listeners
 document.addEventListener('click', (e) => {

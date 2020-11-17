@@ -1,11 +1,9 @@
 import * as load from './load';
 import page from './page';
-import setLocalStorage from './storage'
+import setLocalStorage from './storage';
 
 // Factory Function for Project Creation
 const Project = (title, todos = []) => ({ title, todos });
-
-
 
 // Function to add new Project --Form Submit Listener --
 const addProject = (myProjects, title) => {
@@ -30,6 +28,5 @@ const removeToDo = (myProjects, idxProject, idxToDo) => {
   setLocalStorage(newMyProjects);
   return newMyProjects;
 };
-
 
 export { addProject, removeToDo };
