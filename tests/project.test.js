@@ -1,5 +1,6 @@
 import * as project from '../src/project';
 import page from '../src/page';
+import * as load from '../src/load';
 import setLocalStorage from '../src/storage'
 
 
@@ -8,6 +9,7 @@ import setLocalStorage from '../src/storage'
 describe('AddProject function', () => {
 
     page.displayWarning = jest.fn().mockImplementationOnce(() => "Success");
+    load.reload = jest.fn().mockImplementationOnce(() => "Success");
     
 
     it('Add Project Succed with a valid title', () => {
@@ -29,6 +31,11 @@ describe('AddProject function', () => {
     it('Call the function to Display a warning if a title is not provided', () => {
         let result = project.addProject([], '')
         expect(page.displayWarning).toHaveBeenCalled();
+    });
+
+    it('Reload the Page to display new Project', () => {
+        let result = project.addProject([], 'Test Reload')
+        expect(load.reload).toHaveBeenCalled();
     });
 
     it('Returns an Object with attribute title', () => {
@@ -103,6 +110,10 @@ describe('Remove ToDo function', () => {
             "title": "New Test", "todos": []
         }]);
 
+    });
+
+    it('Reload the Page to display the Project without the toDo removed', () => {
+        expect(load.reload).toHaveBeenCalled();
     });
 
     
