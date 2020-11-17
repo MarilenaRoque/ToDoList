@@ -5,14 +5,11 @@ import setLocalStorage from './storage'
 // Factory Function for Project Creation
 const Project = (title, todos = []) => ({ title, todos });
 
-const getTitle= () => {
-  return document.getElementById('title').value;
-}
+
 
 // Function to add new Project --Form Submit Listener --
-const addProject = (myProjects) => {
+const addProject = (myProjects, title) => {
   const result = '';
-  const title = getTitle();
   if (title) {
     const newProject = Project(title);
     myProjects.push(newProject);

@@ -15,7 +15,8 @@ page.displayProjectsBoards(myProjects);
 // Event Listeners
 document.addEventListener('click', (e) => {
   if (e.target && e.target.id === 'submit-project') {
-    project.addProject(myProjects);
+    const title = page.getTitle();
+    project.addProject(myProjects, title);
   } else if (e.target && e.target.id === 'new-project') {
     page.displayProjectForm();
   } else if (e.target && e.target.id === 'new-todo') {

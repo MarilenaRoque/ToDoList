@@ -72,6 +72,11 @@ const page = (() => {
     projectForm.classList.toggle('display-none');
   };
 
+   //get Title for project submission
+  const getTitle= () => {
+    return document.getElementById('title').value;
+  }
+
   // Hide and Display To Do Form
   const displayToDoForm = (myProjects) => {
     if (!projectForm.classList.contains('display-none')) {
@@ -124,6 +129,7 @@ const page = (() => {
     displayEditForm,
     hideEditForm,
     displayWarning,
+    getTitle
   };
 })();
 
