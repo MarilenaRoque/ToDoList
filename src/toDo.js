@@ -38,13 +38,17 @@ const addToDo = (myProjects) => {
   const description = document.getElementById('description').value;
   const priority = document.getElementById('priority').value;
   const project = document.getElementById('project').value;
+  let status = '';
   if (title && date && description && priority) {
     const newToDo = toDo(title, date, description, priority, project);
     setProjectStorage(myProjects, newToDo);
     load.reload();
+    status = newToDo;
   } else {
     page.displayWarning('todo-warning');
+    status = 'Fail'
   }
+  return status
 };
 
 
