@@ -1,5 +1,6 @@
 import * as load from './load';
 import page from './page';
+import setLocalStorage from './storage'
 
 const setColor = (priority) => {
   let color = '';
@@ -26,7 +27,7 @@ const setProjectStorage = (myProjects, newToDo) => {
   const project = myProjects.findIndex((el) => el.title === newToDo.project);
   const projectToDo = myProjects[project].todos;
   projectToDo.push(newToDo);
-  localStorage.setItem('projects', JSON.stringify(myProjects));
+  setLocalStorage(myProjects);
 };
 
 
@@ -70,7 +71,7 @@ const submitToDo = (myProjects, idxProject, idxToDo) => {
   const description = document.getElementById('edit-description').value;
   const priority = document.getElementById('edit-priority').value;
   newMyProjects[idxProject].todos[idxToDo] = editToDo(todo, title, date, description, priority);
-  localStorage.setItem('projects', JSON.stringify(newMyProjects));
+  setLocalStorage(newMyProjects);
   return newMyProjects;
 };
 

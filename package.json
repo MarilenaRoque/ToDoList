@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
+    "test-watch": "jest --watchAll",
     "test": "jest"
   },
   "keywords": [],
