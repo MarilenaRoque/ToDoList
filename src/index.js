@@ -7,7 +7,6 @@ import * as project from './project';
 // Initializing my Projects
 let myProjects = [];
 myProjects = load.pageInit();
-console.log(myProjects);
 page.displayProjectsBoards(myProjects);
 
 // Event Listeners
@@ -34,7 +33,7 @@ document.addEventListener('click', (e) => {
   } else if (e.target && (e.target.id).includes('change')) {
     const buttonIndex = e.target.id.split('-');
     const editToDoInfo = page.getEditToDoInfo();
-    myProjects = toDo.submitToDo(myProjects, buttonIndex[1], buttonIndex[2], editToDoInfo );
+    myProjects = toDo.submitToDo(myProjects, buttonIndex[1], buttonIndex[2], editToDoInfo);
     load.reload();
   }
 });

@@ -67,10 +67,10 @@ const submitToDo = (myProjects, idxProject, idxToDo, newToDoInfo) => {
   const todo = newMyProjects[idxProject].todos[idxToDo];
 
   // getting forms values
-  const title = newToDoInfo.title;
-  const date = newToDoInfo.date;
-  const description = newToDoInfo.description;
-  const priority = newToDoInfo.priority;
+  const { title } = newToDoInfo;
+  const { date } = newToDoInfo;
+  const { description } = newToDoInfo;
+  const { priority } = newToDoInfo;
   newMyProjects[idxProject].todos[idxToDo] = editToDo(todo, title, date, description, priority);
   setLocalStorage(newMyProjects);
   return newMyProjects;

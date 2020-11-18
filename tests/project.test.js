@@ -78,7 +78,7 @@ describe('Remove ToDo function', () => {
 
   // Tests
 
-  it('remove a toDo of the Projectt', () => {
+  it('remove a toDo of the Project', () => {
     expect(removed[0].todos).toHaveLength(1);
   });
 

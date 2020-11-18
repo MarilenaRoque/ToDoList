@@ -16,12 +16,8 @@ describe('AddToDo function', () => {
   };
 
   const testMyProjects = [
-    { "title": 'Default', "todos": [] },
+    { title: 'Default', todos: [] },
   ];
-
-  it('Return an Object when valid arguments are received', () => {
-    expect(toDo.addToDo(testMyProjects, testToDoInfo) instanceof Object).toBeTruthy;
-  });
 
   // Testing if all the attributes were set correctly
 
@@ -80,10 +76,8 @@ describe('AddToDo function', () => {
     expect(result.color).toBe('#ee9193');
   });
 
-
-  // Testing warning messaage
-  describe ("testing warning messages", () => {
-
+  // Testing warning message
+  describe('testing warning messages', () => {
     beforeEach(() => {
       testToDoInfo = {
         date: '2020-11-24',
@@ -118,27 +112,145 @@ describe('AddToDo function', () => {
       expect(page.displayWarning).toHaveBeenCalled();
     });
 
-  
-
-    //Testing the return of the object adn it value
+    // Testing the return of the object adn it value
 
     it('Object returned should contain the righ values', () => {
       const result = toDo.addToDo(testMyProjects, testToDoInfo);
-      expect(result).toStrictEqual({"color": "#82d37a", 
-                            "date": "2020-11-24", 
-                            "description": "I need to go", 
-                            "priority": "Low",
-                            "project": "Default", 
-                            "title": "Grocery Shop Edited"});
+      expect(result).toStrictEqual({
+        color: '#82d37a',
+        date: '2020-11-24',
+        description: 'I need to go',
+        priority: 'Low',
+        project: 'Default',
+        title: 'Grocery Shop Edited',
+      });
     });
 
     it('Page should reload if the object was successfully created', () => {
-      const result = toDo.addToDo(testMyProjects, testToDoInfo);
+      toDo.addToDo(testMyProjects, testToDoInfo);
       expect(load.reload).toHaveBeenCalled();
     });
-  
   });
-
 });
 
+describe('submitToDo Function to edit To Do Objects', () => {
+  load.reload = jest.fn().mockImplementationOnce(() => 'Success');
 
+  const testToDoInfo = {
+    date: '2020-11-01',
+    description: 'Low Priority Edited',
+    priority: 'High',
+    project: 'Default',
+    title: 'Low Priority Edited',
+  };
+
+  const testProjects = [{
+    title: 'New Test',
+    todos: [{
+      color: '#82d37a',
+      date: '2020-11-24',
+      description: 'Low Priority',
+      priority: 'High',
+      project: 'Default',
+      title: 'Low Priority',
+    },
+    {
+      color: '#82d37a',
+      date: '2020-11-23',
+      description: 'I need to go ',
+      priority: 'Low',
+      project: 'Default',
+      title: 'Grocery Shop',
+    }],
+  },
+  {
+    title: 'New Test', todos: [],
+  },
+  {
+    title: 'New Test', todos: [],
+  }];
+
+  // Set new Color if other priority is provided
+
+  it('New Color is set if new property is provided', () => {
+    const newProjects = toDo.submitToDo(testProjects, 0, 0, testToDoInfo);
+    expect(newProjects[0].todos[0].color).toStrictEqual('#ee9193');
+  });
+
+  it('New Color is set if new property is provided', () => {
+    const newProjects = toDo.submitToDo(testProjects, 0, 0, testToDoInfo);
+    expect(newProjects[0].todos[0].color).not.toStrictEqual('#82d37a');
+  });
+
+  // Return an object with the Info Edited
+
+  it('Edit the right To Do with the provided values', () => {
+    const newProjects = toDo.submitToDo(testProjects, 0, 0, testToDoInfo);
+    expect(newProjects[0].todos[0]).toStrictEqual({
+      color: '#ee9193',
+      date: '2020-11-01',
+      description: 'Low Priority Edited',
+      priority: 'High',
+      project: 'Default',
+      title: 'Low Priority Edited',
+    });
+  });
+
+  it('Reload the page to display edited To Do', () => {
+    toDo.submitToDo(testProjects, 0, 0, testToDoInfo);
+    expect(load.reload).toHaveBeenCalled();
+  });
+
+  describe('testing if old info is kept if new one is not provided', () => {
+    let testToDoInfo2 = {};
+    let testProjects2 = [];
+
+    beforeEach(() => {
+      testToDoInfo2 = {
+        date: '2020-11-02',
+        description: 'New Grocery Edited',
+        priority: 'High',
+        project: 'Default',
+        title: 'New Grocery Edited',
+      };
+
+      testProjects2 = [{
+        title: 'New Test',
+        todos: [{
+          color: '#82d37a',
+          date: '2020-11-24',
+          description: 'Low Priority',
+          priority: 'High',
+          project: 'Default',
+          title: 'Low Priority',
+        },
+        {
+          color: '#82d37a',
+          date: '2020-11-23',
+          description: 'I need to go ',
+          priority: 'Low',
+          project: 'Default',
+          title: 'Grocery Shop',
+        }],
+      },
+      {
+        title: 'New Test', todos: [],
+      },
+      {
+        title: 'New Test', todos: [],
+      }];
+    });
+
+    it('Old date is kept if a new one is not provided', () => {
+      testToDoInfo2.date = '';
+      const newProjects = toDo.submitToDo(testProjects2, 0, 1, testToDoInfo2);
+      expect(newProjects[0].todos[1].date).toBe('2020-11-23');
+    });
+
+    it('Old title is kept if a new one is not provided', () => {
+      testToDoInfo2.title = '';
+      const newProjects = toDo.submitToDo(testProjects2, 0, 1, testToDoInfo2);
+      expect(newProjects[0].todos[1].title).toBe('Grocery Shop');
+    });
+  });
+});

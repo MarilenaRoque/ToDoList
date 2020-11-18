@@ -100,7 +100,7 @@ const page = (() => {
       description,
       priority,
     };
-  }
+  };
 
   // Hide and Display To Do Form
   const displayToDoForm = (myProjects) => {
