@@ -33,7 +33,8 @@ document.addEventListener('click', (e) => {
     page.displayEditForm(myProjects, buttonIndex[1], buttonIndex[2]);
   } else if (e.target && (e.target.id).includes('change')) {
     const buttonIndex = e.target.id.split('-');
-    myProjects = toDo.submitToDo(myProjects, buttonIndex[1], buttonIndex[2]);
+    const editToDoInfo = page.getEditToDoInfo();
+    myProjects = toDo.submitToDo(myProjects, buttonIndex[1], buttonIndex[2], editToDoInfo );
     load.reload();
   }
 });
