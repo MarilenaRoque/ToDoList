@@ -1,5 +1,6 @@
 import * as load from './load';
 import page from './page';
+import setLocalStorage from './storage';
 
 const setColor = (priority) => {
   let color = '';
@@ -26,26 +27,27 @@ const setProjectStorage = (myProjects, newToDo) => {
   const project = myProjects.findIndex((el) => el.title === newToDo.project);
   const projectToDo = myProjects[project].todos;
   projectToDo.push(newToDo);
-  localStorage.setItem('projects', JSON.stringify(myProjects));
+  setLocalStorage(myProjects);
 };
-
 
 // Create a new Todo -- triggered by submit to do button
-const addToDo = (myProjects) => {
-  const title = document.getElementById('title-todo').value;
-  const date = document.getElementById('date').value;
-  const description = document.getElementById('description').value;
-  const priority = document.getElementById('priority').value;
-  const project = document.getElementById('project').value;
-  if (title && date && description && priority) {
-    const newToDo = toDo(title, date, description, priority, project);
+const addToDo = (myProjects, toDoInfo) => {
+  let status = '';
+  if (toDoInfo.title && toDoInfo.date && toDoInfo.description && toDoInfo.priority) {
+    const newToDo = toDo(toDoInfo.title,
+      toDoInfo.date,
+      toDoInfo.description,
+      toDoInfo.priority,
+      toDoInfo.project);
     setProjectStorage(myProjects, newToDo);
     load.reload();
+    status = newToDo;
   } else {
     page.displayWarning('todo-warning');
+    status = 'Fail';
   }
+  return status;
 };
-
 
 const editToDo = (todo, title, date, description, priority) => {
   const editedToDo = todo;
@@ -60,19 +62,18 @@ const editToDo = (todo, title, date, description, priority) => {
   return editedToDo;
 };
 
-const submitToDo = (myProjects, idxProject, idxToDo) => {
+const submitToDo = (myProjects, idxProject, idxToDo, newToDoInfo) => {
   const newMyProjects = [...myProjects];
   const todo = newMyProjects[idxProject].todos[idxToDo];
 
   // getting forms values
-  const title = document.getElementById('title-edit').value;
-  const date = document.getElementById('edit-date').value;
-  const description = document.getElementById('edit-description').value;
-  const priority = document.getElementById('edit-priority').value;
+  const { title } = newToDoInfo;
+  const { date } = newToDoInfo;
+  const { description } = newToDoInfo;
+  const { priority } = newToDoInfo;
   newMyProjects[idxProject].todos[idxToDo] = editToDo(todo, title, date, description, priority);
-  localStorage.setItem('projects', JSON.stringify(newMyProjects));
+  setLocalStorage(newMyProjects);
   return newMyProjects;
 };
-
 
 export { addToDo, submitToDo };
