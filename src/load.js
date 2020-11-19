@@ -1,3 +1,5 @@
+import setLocalStorage from './storage';
+
 let myProjects = [];
 // Function to get data stored in the Browser
 const pageInit = () => { // eslint-disable-line no-unused-vars
@@ -10,9 +12,8 @@ const pageInit = () => { // eslint-disable-line no-unused-vars
 };
 
 const reload = () => {
-  localStorage.setItem('projects', JSON.stringify(myProjects));
+  setLocalStorage(myProjects);
   document.location.reload();
 };
-
 
 export { pageInit, reload };

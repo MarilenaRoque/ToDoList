@@ -25,6 +25,7 @@
 - Webpack
 - HTML5
 - CSS3
+- Jest
 
 
 ## Getting Started
@@ -37,6 +38,16 @@ To get a local copy of this project running follow these simple steps.
 - To set Webpack and the dependencies run the command
 > `npm install`
 - Use your favorite browser to open the index.html file (located at the dist page)
+
+## Running tests
+
+This project contains Built tests using jest. To run the tests on your local machine you can run the following command on the project folder:
+ > `yarn test`
+
+ If you want to build customized tests, you should create new files or edit the files inside the tests/ folder.
+ The tests files should be always named with the extension .test.js
+ To set the watch mode and keep tracking the tests continuously while you build it you can run
+> `yarn test-watch`
 
 
 ## Authors

@@ -4,24 +4,23 @@ import * as toDo from './toDo';
 import * as load from './load';
 import * as project from './project';
 
-
 // Initializing my Projects
 let myProjects = [];
 myProjects = load.pageInit();
-
 page.displayProjectsBoards(myProjects);
-
 
 // Event Listeners
 document.addEventListener('click', (e) => {
   if (e.target && e.target.id === 'submit-project') {
-    project.addProject(myProjects);
+    const title = page.getTitle();
+    project.addProject(myProjects, title);
   } else if (e.target && e.target.id === 'new-project') {
     page.displayProjectForm();
   } else if (e.target && e.target.id === 'new-todo') {
     page.displayToDoForm(myProjects);
   } else if (e.target && e.target.id === 'submit-todo') {
-    toDo.addToDo(myProjects);
+    const info = page.getToDoInfo();
+    toDo.addToDo(myProjects, info);
   } else if (e.target && (e.target.id).includes('remove-')) {
     const buttonIndex = e.target.id.split('-');
     myProjects = project.removeToDo(myProjects, buttonIndex[1], buttonIndex[2]);
@@ -33,7 +32,8 @@ document.addEventListener('click', (e) => {
     page.displayEditForm(myProjects, buttonIndex[1], buttonIndex[2]);
   } else if (e.target && (e.target.id).includes('change')) {
     const buttonIndex = e.target.id.split('-');
-    myProjects = toDo.submitToDo(myProjects, buttonIndex[1], buttonIndex[2]);
+    const editToDoInfo = page.getEditToDoInfo();
+    myProjects = toDo.submitToDo(myProjects, buttonIndex[1], buttonIndex[2], editToDoInfo);
     load.reload();
   }
 });
